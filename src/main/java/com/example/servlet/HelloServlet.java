@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 /**
  * Simple servlet that greets users
@@ -26,6 +27,9 @@ public class HelloServlet extends HttpServlet {
             name = "World";
         }
         
+        // Escape HTML to prevent XSS vulnerabilities
+        String escapedName = escapeHtml(name);
+        
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -38,7 +42,7 @@ public class HelloServlet extends HttpServlet {
             out.println("</style>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Hello, " + name + "!</h1>");
+            out.println("<h1>Hello, " + escapedName + "!</h1>");
             out.println("<p>Welcome to the GHAS Java Demo application.</p>");
             out.println("<p><a href='index.jsp'>Go to Home Page</a></p>");
             out.println("</body>");
@@ -55,5 +59,20 @@ public class HelloServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Hello Servlet";
+    }
+
+    /**
+     * Escapes HTML special characters to prevent XSS attacks
+     */
+    private String escapeHtml(String input) {
+        if (input == null) {
+            return null;
+        }
+        return input.replace("&", "&amp;")
+                    .replace("<", "&lt;")
+                    .replace(">", "&gt;")
+                    .replace("\"", "&quot;")
+                    .replace("'", "&#x27;")
+                    .replace("/", "&#x2F;");
     }
 }
