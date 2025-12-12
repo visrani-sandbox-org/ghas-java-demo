@@ -1,4 +1,5 @@
 # GHAS Java Demo
+test
 
 A simple Java web application for testing GitHub Advanced Security (GHAS) features. This project demonstrates:
 - Java Servlet technology
