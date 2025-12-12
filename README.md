@@ -6,6 +6,10 @@ A simple Java web application for testing GitHub Advanced Security (GHAS) featur
 - Maven build with WAR packaging
 - GitHub Advanced Security integration for code scanning
 
+## Architecture
+
+For a comprehensive architecture overview including system diagrams, component descriptions, and data flow, see [ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## Prerequisites
 
 - Java Development Kit (JDK) 17 or higher
