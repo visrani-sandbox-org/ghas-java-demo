@@ -140,7 +140,7 @@ graph TB
 
 #### web.xml
 - **Purpose**: Jakarta EE deployment descriptor
-- **Version**: Jakarta EE 5.0
+- **Version**: Servlet API 5.0 (Jakarta EE 9+)
 - **Configuration**:
   - Display name and description
   - Welcome file list (index.jsp, index.html)
