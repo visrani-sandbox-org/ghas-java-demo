@@ -1,3 +1,5 @@
+package com.example.servlet;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
